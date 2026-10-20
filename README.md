@@ -1,26 +1,51 @@
 # Qissa Story Frames
 
-https://lovable.dev/preview/N4wZ7VAjGKrY6cBk0HDPP3PDxYNGY8Ta continue this with updating the font to ITC Edwardian for the word “qissa”  and use these photos for each travel, family, love and custom qissa
+> *Your digital memories, bound into physical chapters.*
 
-This project was built with [Lovable](https://lovable.dev).
+An editorial photobook experience built with TanStack Start, React 19, Tailwind CSS, and Radix UI. Features interactive magazine flipbooks, chapter showcases, and direct enquiry integration.
 
-**Live app**: https://qissa-story-frames.lovable.app
+## Features
 
-## Build with Lovable
+- **Editorial Showcase**: Curated chapters for Travel, Love, Family, and Custom photobooks.
+- **Interactive Magazine Flipbook**: Built-in realistic page-turning flipbook with responsive spread layouts.
+- **Self-Contained Local Assets**: All imagery, magazine pages, and custom typography are bundled directly in the project without external cloud dependencies.
+- **Vercel Ready**: Pre-configured Nitro output for zero-config Vercel SSR deployment.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/b22d5980-8a5c-48a1-af5b-bf11f76e525d).
+## Tech Stack
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- **Framework**: [TanStack Start](https://tanstack.com/start) / [TanStack Router](https://tanstack.com/router)
+- **UI Library**: React 19, Tailwind CSS v4, Radix UI
+- **Build Tool**: Vite 8 & Nitro
+- **Flipbook**: react-pageflip
 
-## Development
+## Getting Started
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+### Prerequisites
+
+- Node.js (>= 20)
+- npm or bun
+
+### Local Development
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone https://github.com/vedantnathani/qissa-story-frames.git
+cd qissa-story-frames
+npm install
 npm run dev
+```
+
+The application will be running at `http://localhost:5173`.
+
+### Production Build
+
+```sh
+npm run build
+```
+
+The build produces a deployment-ready `.vercel/output` for Vercel.
+
+### Testing
+
+```sh
+npm test
 ```

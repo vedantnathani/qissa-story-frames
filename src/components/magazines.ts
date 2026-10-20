@@ -1,15 +1,14 @@
-import anniversaryCover from "@/assets/anniversary-cover.jpeg.asset.json";
-import customCover from "@/assets/custom-cover.png.asset.json";
-import spitiCover from "@/assets/spiti-cover.png.asset.json";
+import anniversaryCover from "@/assets/anniversary-cover.jpeg";
+import customCover from "@/assets/custom-cover.png";
+import spitiCover from "@/assets/spiti-cover.png";
 
-type Pointer = { url: string };
-const pagePointers = import.meta.glob<Pointer>("@/assets/magazines/*.asset.json", { eager: true, import: "default" });
+const pageImages = import.meta.glob<string>("@/assets/magazines/*.jpg", { eager: true, import: "default" });
 
 function pagesFor(prefix: string) {
-  return Object.entries(pagePointers)
+  return Object.entries(pageImages)
     .filter(([path]) => path.includes(`/${prefix}-`))
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(([, p]) => p.url);
+    .map(([, url]) => url);
 }
 
 export type Magazine = {
@@ -24,7 +23,7 @@ export type Magazine = {
 };
 
 export const magazines: Magazine[] = [
-  { id: "anniversary", title: "The Anniversary Magazine", kind: "Love Qissa", description: "Twenty-two and together — a love story told in twelve pages.", cover: anniversaryCover.url, aspect: 595.5 / 842.25, pages: pagesFor("anniv") },
-  { id: "custom", title: "The Lifestyle Magazine", kind: "Custom Qissa", description: "A limited-edition cover story for a birthday bash.", cover: customCover.url, aspect: 594.96 / 842.25, pages: pagesFor("custom") },
-  { id: "spiti", title: "Spiti", kind: "Travel Qissa", description: "Higher roads, quieter places — a journey in pictures.", cover: spitiCover.url, aspect: 792 / 594, pages: pagesFor("spiti") },
+  { id: "anniversary", title: "The Anniversary Magazine", kind: "Love Qissa", description: "Twenty-two and together — a love story told in twelve pages.", cover: anniversaryCover, aspect: 595.5 / 842.25, pages: pagesFor("anniv") },
+  { id: "custom", title: "The Lifestyle Magazine", kind: "Custom Qissa", description: "A limited-edition cover story for a birthday bash.", cover: customCover, aspect: 594.96 / 842.25, pages: pagesFor("custom") },
+  { id: "spiti", title: "Spiti", kind: "Travel Qissa", description: "Higher roads, quieter places — a journey in pictures.", cover: spitiCover, aspect: 792 / 594, pages: pagesFor("spiti") },
 ];

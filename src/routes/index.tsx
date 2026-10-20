@@ -2,16 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { magazines, type Magazine } from "@/components/magazines";
-import curator from "@/assets/curator.jpeg.asset.json";
+import curator from "@/assets/curator.jpeg";
 
 const Flipbook = lazy(() => import("@/components/Flipbook"));
 import { ArrowUpRight, ArrowDown, Menu, X, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import hero from "@/assets/original-hero.jpg.asset.json";
-import travel from "@/assets/IMG_6301.jpeg.asset.json";
-import family from "@/assets/IMG_6318.jpeg.asset.json";
-import love from "@/assets/IMG_6317.jpeg.asset.json";
-import custom from "@/assets/IMG_6319.jpeg.asset.json";
+import hero from "@/assets/original-hero.jpg";
+import travel from "@/assets/IMG_6301.jpeg";
+import family from "@/assets/IMG_6318.jpeg";
+import love from "@/assets/IMG_6317.jpeg";
+import custom from "@/assets/IMG_6319.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -26,10 +26,10 @@ export const Route = createFileRoute("/")({
 });
 
 const chapters = [
-  { name: "Travel", image: travel.url, description: "For the paths walked and horizons that changed you.", formats: ["Pocket Softcover (6×6”)", "Classic Hardbound (8×8”)", "Panoramic (A4)"], best: "Road trips and solo journals." },
-  { name: "Love", image: love.url, description: "For the quiet looks and chapters built together.", formats: ["Classic Square (8×8”)", "Heirloom Clothbound (10×10”)"], best: "Anniversaries and milestones." },
-  { name: "Family", image: family.url, description: "For the generations in one frame and archives of home.", formats: ["Classic Hardbound (8×8”)", "The Heavy Heirloom (10×10”)"], best: "Baby milestones and year-in-review." },
-  { name: "Custom", image: custom.url, description: "For the spaces you curate—from cafes to wedding heirlooms.", formats: ["Exhibition Hardcover (10×10”)", "Grand Lay-Flat (12×12”)"], best: "Studios and luxury events." },
+  { name: "Travel", image: travel, description: "For the paths walked and horizons that changed you.", formats: ["Pocket Softcover (6×6”)", "Classic Hardbound (8×8”)", "Panoramic (A4)"], best: "Road trips and solo journals." },
+  { name: "Love", image: love, description: "For the quiet looks and chapters built together.", formats: ["Classic Square (8×8”)", "Heirloom Clothbound (10×10”)"], best: "Anniversaries and milestones." },
+  { name: "Family", image: family, description: "For the generations in one frame and archives of home.", formats: ["Classic Hardbound (8×8”)", "The Heavy Heirloom (10×10”)"], best: "Baby milestones and year-in-review." },
+  { name: "Custom", image: custom, description: "For the spaces you curate—from cafes to wedding heirlooms.", formats: ["Exhibition Hardcover (10×10”)", "Grand Lay-Flat (12×12”)"], best: "Studios and luxury events." },
 ];
 
 function Wordmark({ comma = false }: { comma?: boolean }) {
@@ -67,7 +67,7 @@ function Index() {
 
       <main>
         <section className="qissa-hero" aria-label="Qissa, a chapter">
-          <img className="hero-photo" src={hero.url} alt="Open memory photobook, burgundy linen cover, and treasured travel photographs" fetchPriority="high" />
+          <img className="hero-photo" src={hero} alt="Open memory photobook, burgundy linen cover, and treasured travel photographs" fetchPriority="high" />
           <div className="hero-wash" />
           <div className="hero-copy">
             <p className="eyebrow">Some stories deserve more than a screen.</p>
@@ -114,7 +114,7 @@ function Index() {
 
         <section className="process-section" id="process"><div className="section-inner"><p className="eyebrow">03 / From your gallery to your bookshelf</p><h2>Three simple steps.</h2><div className="steps-grid">{[{ title: "Choose", text: "Select your theme and book size." }, { title: "Drop your gallery", text: "Share your raw Google Drive link. We do the layout." }, { title: "Hold the chapter", text: "Professionally bound and shipped to your door." }].map((step, i) => <div className="process-step" key={step.title}><span>0{i + 1}</span><h3>{step.title}</h3><p>{step.text}</p></div>)}</div></div></section>
 
-        <section className="story-section section-inner" id="story"><div><p className="eyebrow">04 / The person behind the pages</p><h2>The story behind<br />the chapters.</h2><blockquote>“Hi, I’m the curator behind Qissa. I work a full-time job, but my favorite weekends are spent bringing memories back into the physical world.”</blockquote><p className="story-signature">With love, <Wordmark />.</p></div><img className="curator-photo" src={curator.url} alt="The curator behind Qissa, smiling by candlelight" loading="lazy" /></section>
+        <section className="story-section section-inner" id="story"><div><p className="eyebrow">04 / The person behind the pages</p><h2>The story behind<br />the chapters.</h2><blockquote>“Hi, I’m the curator behind Qissa. I work a full-time job, but my favorite weekends are spent bringing memories back into the physical world.”</blockquote><p className="story-signature">With love, <Wordmark />.</p></div><img className="curator-photo" src={curator} alt="The curator behind Qissa, smiling by candlelight" loading="lazy" /></section>
 
         <section className="begin-section" id="begin"><div className="section-inner begin-inner"><div><p className="eyebrow">A new chapter starts here</p><h2>Begin your<br /><Wordmark />.</h2><p className="begin-description">A journey, a person, a little piece of life.<br />Tell us what you’d like to keep.</p></div><form className="enquiry-form" onSubmit={event => { event.preventDefault(); const data = new FormData(event.currentTarget); const text = `Hello Qissa!\nName: ${data.get("name")}\nContact: ${data.get("contact")}\nChapter: ${chapter}\nMemories: ${data.get("memories")}`; window.open(`https://wa.me/919321389128?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer"); }}>
           <div className="form-row"><label>Your name<input name="name" autoComplete="name" required /></label><label>Email or phone<input name="contact" autoComplete="email" required /></label></div>

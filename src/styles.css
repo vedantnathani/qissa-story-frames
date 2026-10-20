@@ -146,7 +146,7 @@
 /* Qissa editorial design system — matches the supplied original. */
 @font-face {
   font-family: "ITC Edwardian";
-  src: url("/__l5e/assets-v1/2bfce478-d64b-4584-9837-1087ecb57d95/edwardian-script-itc.ttf") format("truetype");
+  src: url("./assets/edwardian-script-itc.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
